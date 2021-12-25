@@ -771,6 +771,14 @@
     uri: https://github.com/ros2-gbp/spdlog_vendor-release.git
     version: release/galactic/spdlog_vendor/1.3.0-2
 - git:
+    local-name: smart_home/sh_common
+    uri: https://github.com/rnvandemark/sh_common.git
+    version: master
+- git:
+    local-name: smart_home/sh_common_interfaces
+    uri: https://github.com/rnvandemark/sh_common_interfaces.git
+    version: master
+- git:
     local-name: sros2/sros2
     uri: https://github.com/ros2-gbp/sros2-release.git
     version: release/galactic/sros2/0.10.2-2
