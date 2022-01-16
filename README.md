@@ -28,6 +28,7 @@ sudo apt update && sudo apt install -y \
   python3-rosdep \
   python3-setuptools \
   python3-vcstool \
+  python3-rosinstall \
   wget \
   libacl1-dev \
   libasio-dev \
@@ -52,7 +53,8 @@ python3 -m pip install -U \
   pytest \
   setuptools \
   lark \
-  numpy
+  numpy \
+  testresources
 
 cd /opt/rti.com/rti_connext_dds-5.3.1/resource/scripts && source ./rtisetenv_x64Linux3gcc5.4.0.bash; cd -
 
