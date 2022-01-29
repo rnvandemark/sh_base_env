@@ -779,6 +779,10 @@
     uri: https://github.com/rnvandemark/sh_common_interfaces.git
     version: master
 - git:
+    local-name: smart_home/sh_discovery
+    uri: https://github.com/rnvandemark/sh_discovery.git
+    version: master
+- git:
     local-name: sros2/sros2
     uri: https://github.com/ros2-gbp/sros2-release.git
     version: release/galactic/sros2/0.10.2-2
