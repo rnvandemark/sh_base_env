@@ -2,8 +2,6 @@ set -e
 
 function sh_die() { echo "ERROR: $@" 1>&2; exit; }
 
-[[ $# -eq 4 ]] || sh_die "Expected four input args."
-
 # The user which will own all files
 TARGET_USER="$1"
 echo "## TARGET_USER=$TARGET_USER"
@@ -16,6 +14,9 @@ echo "## SH_WS_PATH=$SH_WS_PATH"
 # A path to a rosinstall file to merge into the workspace
 SH_ROSINSTALL_PATH="$4"
 echo "## SH_ROSINSTALL_PATH=$SH_ROSINSTALL_PATH"
+# A path to a rosinstall file to merge into the workspace
+SH_REPOS_UPDATE="$5"
+echo "## SH_REPOS_UPDATE=$SH_REPOS_UPDATE"
 
 [[ -d "$SH_WS_PATH" ]] || sh_die "Could not find workspace path: '$SH_WS_PATH'"
 
@@ -36,7 +37,7 @@ mkdir -p "${SH_WS_PATH}/src"
 pushd "$SH_WS_PATH" >/dev/null
 touch src/.rosinstall
 wstool merge -t src "$SH_ROSINSTALL_PATH"
-wstool update -t src "-j$(grep -c '^processor' /proc/cpuinfo)"
+wstool update ${SH_REPOS_UPDATE} -t src "-j$(grep -c '^processor' /proc/cpuinfo)"
 chown -R "${TARGET_USER}:${TARGET_USER}" *
 popd >/dev/null
 
